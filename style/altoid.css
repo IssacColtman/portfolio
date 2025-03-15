@@ -1,0 +1,666 @@
+/* COLOR PALLETE (taken lovingly from Pinterest)
+
+Milky Coffee -- rgb(155, 125, 97)
+Roasted Peach -- rgb(218, 163, 143)
+Whole Wheat -- rgb(233, 215, 192)
+Eucalyptus -- rgb(146, 173, 164)
+Cream -- rgb(254, 216, 166)
+
+*/
+
+
+/* MARGIN AND PADDING SETTINGS
+
+    margin: 10%;
+    padding: 10px;
+    min-height: 100vh;
+
+*/
+
+
+
+
+
+body {
+    font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    background-color: rgba(232, 201, 172, 0.442);
+    color: #333;
+    margin: 0;
+}
+
+.top {
+    top: 0;
+}
+
+.bottom {
+    top: 50%;
+}
+
+
+
+/* HEADER */
+
+.header {
+    color: rgb(114, 111, 94);
+    text-align: center;
+    margin: 10%;
+}
+
+.header h1 {
+    font-size: 30vh; /*for some reason unknown to me putting the font size attribute under the h1 designation creates WILDLY different results than the header class */
+}
+
+.header p {
+    font-size: 4vh;
+}
+
+
+/* ALTOID FLAVOR SECTION */
+
+.altoidflavorflex {          
+    margin: 10%;
+    padding: 10px;
+    min-height: 100vh;
+    display: flex;    
+    border: 4px ridge; /* mimics style of altoid can */         
+    flex-wrap: wrap;
+    justify-content: space-around;                                
+    background-color: rgb(155, 125, 97);
+    position: relative;
+}
+
+.altoidflavorflexcard {
+    flex: calc(100%/4);    
+    margin: 10px;   
+    text-align: center;
+    border: 8px double rgb(0, 0, 0);    
+    padding: 15px;
+    border-radius: 30px;
+    background-color: rgb(233, 215, 192);          
+    box-shadow: 4px 8px 15px rgba(0, 0, 0, 0.4);
+}
+
+.altoidflavorflexcard img {
+    border-radius: 52px; /* necessary to have curved edges on altoid cans */
+    height: 200px;
+    backdrop-filter: blur(5px);
+    box-shadow: 2px 4px 15px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease;
+}
+
+.altoidflavorflexcard img:hover {
+    transform: scale(1.05);
+}
+
+
+/* TIMELINE */
+
+.altoidtimeline {
+    margin: 10%;
+    box-sizing: border-box;
+    border: 4px ridge; /* same as all other boxes on website */
+}
+
+.timeline {
+    background-color: rgb(218, 163, 143);
+    padding: 10px;
+    display: inline-grid; /* minor difference from display grid, but looks better */
+    gap: 20px;
+    grid-template-areas:
+        "theader theader theader"
+        "seventeen eighteen one"
+        "seven ten eleven";
+    text-align: center; 
+    
+}
+
+.timelinecard {
+    padding: 20px 30px;
+    background-color: rgb(233, 215, 192);
+    position: relative;
+    border-radius: 15px;
+    border: double 5px black;
+    flex: 1;
+    transition: transform 0.3s ease;
+}
+
+.timelinecard p {
+    font-size: large;
+}
+
+.timelinecard:hover {
+    transform: scale(1.01);
+}
+
+
+/* Grid associations */
+    .timelinecard.title {
+        grid-area: theader; /* theader so as not to confuse with other grid header elements */
+    }
+
+    .timelinecard.seventeen {
+        grid-area: seventeen;
+    }
+
+    .timelinecard.eighteen {
+        grid-area: eighteen;
+    }
+
+    .timelinecard.one {
+        grid-area: one;
+    }
+
+    .timelinecard.seven {
+        grid-area: seven;
+    }
+
+    .timelinecard.ten {
+        grid-area: ten;
+    }
+
+    .timelinecard.eleven {
+        grid-area: eleven;
+    }
+
+/* GRID */
+
+.altoidgrid {
+    margin: 25px 50px 125px 50px; /* for visual styling and space for grid */
+    padding: 0;
+    box-sizing: border-box;
+    border: 4px ridge;    
+    min-height: 100vh;
+    display: grid;
+}
+
+/* GRID BLOG */
+
+.altoidgrid.blog {
+    background-color: rgb(218, 163, 143);
+    margin: 10%;
+    padding: 10px;
+    min-height: 100vh;
+    display: grid;
+    justify-content: center;
+    grid-gap: 20px;
+    grid-template-areas:
+        "header header"
+        "blog1 blog2"
+        "blog1 blog3"
+        "blog4 blog4"    
+}
+
+.grid-item {
+    position: relative;
+    border: 8px double #000000;
+    border-radius: 30px;
+    padding: 20px;
+    width: auto;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    background-color: rgb(233, 215, 192);
+}
+
+.grid-item-overlay { /* Used in image gallery */
+    position: absolute;  
+    top: 0; 
+    left: 0; 
+    width: 100%; /*whole width of the container */
+    height: 100%; /*whole height of the container */
+    background-color: rgba(0, 0, 0, 0.7); 
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center; 
+    opacity: 0; 
+    transition: opacity 0.3s ease;
+    border-radius: 15px;
+}
+
+.grid-item-overlay a {
+    color: blue; /* makes links stand out as links, but contrast to black background */
+}
+
+/* Show overlay on hover */
+.grid-item:hover .grid-item-overlay {
+    opacity: 1;
+}
+
+
+.grid-item h2 { /* Changes the titled spacing to a way I prefer */
+    margin-top: 0px;
+    margin-bottom: 10px;
+}
+
+.grid-item p {
+    font-size: large;
+}
+
+.grid-item:hover {
+    transform: translateY(-5px);
+}
+
+.blogheader {
+    grid-area: header;
+    background-color: rgb(146, 173, 164);
+    color: rgb(0, 0, 0);
+    font-size: 1em;
+}
+
+.aboutme {
+    grid-area: blog1;
+}
+
+.otherflavors {
+    grid-area: blog2;
+}
+
+.tastesovertime {
+    grid-area: blog3;
+}
+
+.sours {
+    grid-area: blog4;
+}
+
+/* FORM */
+
+/* Section with the form button */
+
+.signupsection {
+    text-align: center;
+    padding: 10px;
+    min-height: 33vh; /* eyeballed it */
+    background-color: rgb(233, 215, 192);
+    border: 4px ridge;
+    margin-left: 10%;
+    margin-right: 10%;
+}
+
+/* Button to open newsletter form */
+
+.button {
+    background-color: rgb(83, 150, 101);
+    color: rgb(255, 255, 255); 
+    padding: 10px;
+    margin-top: 10px;
+    border: none;
+    border-radius: 15px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: transform 0.1s ease;
+    text-decoration: none;
+}
+
+.button.open {
+    text-align: center;
+    margin-top: 20px;
+    padding: 10px;
+    width: 80%;
+    font-size: 2em;
+}
+
+.button:hover {
+    transform: scale(1.01);
+}
+
+/* Form pop up */
+
+.flex {
+    flex: 1
+}
+
+.form-container {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    padding: 30px;
+}
+
+.form-container label {
+    margin-top: 10px;
+}
+
+.form-container input {
+    width: 100%;
+    padding: 12px 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin: 8px 0;
+    box-sizing: border-box;
+}
+
+.form-popup {
+    position: fixed;
+    display: none;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: #ffffff;
+    border-radius: 30px;
+    box-shadow: 0 0 15px rgba(0,0,0, 0.2);
+    border: 3px solid;
+    z-index: 9; 
+    flex-wrap: wrap;
+}
+
+.button.close {
+    background-color: rgba(227, 72, 72, 0.971);
+}
+
+/* IMAGE OVERLAY */
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    background-color: rgba(0, 0, 0, 0.7);
+}
+
+
+/* GRID IMAGE GALLERY */
+
+.altoidgrid.gallery {
+    background-color: rgb(218, 163, 143);
+    margin: 10%;
+    padding: 10px;
+    display: inline-grid;
+    grid-auto-flow: row;
+    grid-gap: 20px;
+    grid-template-areas:
+        "header header header"
+        "image1 image2 image3"
+        "image1 image4 image5";
+    text-align: center; 
+}
+
+.grid-item img {
+    max-width: 275px;
+    height: auto;
+    position: relative;
+}
+
+.grid-item img .overlay {
+    opacity: 1;
+}
+
+.imageheader {
+    grid-area: header;
+    background-color: rgb(146, 173, 164);
+}
+
+.image1 {
+    grid-area: image1;
+}
+.image2 {
+    grid-area: image2;
+}
+.image3 {
+    grid-area: image3;
+    position: relative;
+}
+.image4 {
+    grid-area: image4;
+    position: relative;
+}
+.image5 {
+    grid-area: image5;
+    position: relative;
+}
+
+
+/* FOOTER */
+
+.apples /*There's no good reason I called it apples, but I think it's funny so it stays. Apples=footer */ 
+{
+    font-size: 2vh;
+    text-align: center;
+    background-color: rgb(233, 215, 192);
+    padding: 20px;
+    color: rgb(114, 111, 94);
+}
+
+.apples.about {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* RESUME */
+
+.content {
+    max-width: 1200px; /* makes it take full length of screen without using flex boxes */
+    margin: auto;
+    padding: 5%;
+    align-items: center;
+    line-height: 1.4;
+    font-family: Helvetica, sans-serif;
+}
+
+.resumebody { /* this section is seperate to have the image not affected by max width */
+   background-image: url(p4\images\thumbnail_IMG_5486.jpg);
+}
+
+header {
+    font-size: 1.5em;
+    max-width: 1200px;
+    text-align: center;
+    background-color: rgb(146, 173, 164);
+    border: 8px double rgb(0, 0, 0);    
+    color: white; /* I don't like how I have to copy this color over to .contact-info, but I don't know how to fix that */
+    border-radius: 20px;
+    padding: 8px;
+    margin: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.11);
+}
+
+/* manages blocks of info */
+
+section {
+    max-width: 1200px;
+    border: 8px double rgb(0, 0, 0);    
+    display: block;
+    border-radius: 20px; /*Must be same as header value */
+    padding: 8px;
+    margin: 10px;
+    background-color: rgb(233, 215, 192);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.11);
+    transition: transform 0.4s ease;
+}
+
+/* makes sections jump up when hovered with mouse */
+
+section:hover { 
+    transform: translateY(-3px);
+}
+
+footer {
+    max-width: 1200px;
+    display: block;
+    border-radius: 20px; /*Must be same as header value */
+    padding: 2px;
+    margin: 10px;
+    background-color: lightgrey;
+    text-align: center;
+    border: 8px double rgb(0, 0, 0);    
+}
+
+/* Content for contact information at top of resume */
+
+
+.contact-link {
+    align-items: center;
+    font-size: 0.8em;
+    color: #ffffff;
+    text-decoration: none;
+}
+
+/* HEADER */
+
+.navbar { /* Style for navbar box */
+    position: sticky;
+    top: 0;
+    display: flex;
+    justify-content: space-between; /* makes text on left and logo on right */
+    padding: 1rem 2rem;
+    background-color:  rgba(155, 125, 97, 0.9);
+    box-shadow: 4px 8px 15px rgba(0, 0, 0, 0.4);
+    z-index: 1000;
+}
+
+nav a {
+    color: white;
+    margin: 0 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* NAV LINK */
+
+.navbar a {
+    color: rgba(255, 231, 199, 0.9); /* Default link color (blue) */
+    text-decoration: none;
+}
+
+a:hover {
+    color: rgb(251, 247, 12);
+    text-decoration: underline;
+}
+
+a:active {
+    color: white;
+    text-decoration:none;
+}
+
+.mobile-menu-btn {
+    display: none; /* Thereby disables it when not on mobile */
+    background: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.button a {
+    color: white;
+    text-decoration: none;
+}
+
+.button a:active {
+    color: green;
+    text-decoration: none;
+}
+
+
+/* MEDIA ADJUSTMENTS */
+
+/* Getting this right was a process of patching holes when they appeared */
+
+@media (max-width: 1300px) {
+    .altoidgrid.gallery {
+        grid-template-areas:
+            "header header"
+            "image1 image2"
+            "image1 image3"
+            "image4 image5";
+    }
+}
+
+@media (max-width: 768px) {
+    .header h1 {
+        font-size: 10vh;
+    }
+
+    .header p {
+        font-size: 3vh;
+    }
+
+    .altoidflavorflex {
+        margin: 5%;
+    }
+
+    .altoidflavorflexcard img {
+        border-radius: 35px; /* necessary to have curved edges on altoid cans */
+        height: 150px;
+    }
+
+    .imagecontainer img {
+        height: 80px;
+    }
+
+    .altoidtimeline {
+        margin: 5%;
+    }
+
+    .altoidgrid {
+        min-height: 20px;
+    }
+
+    .altoidgrid.blog {
+        margin: 5%;
+        grid-template-areas:
+            "header"
+            "blog1"
+            "blog2"
+            "blog3"
+            "blog4";
+        justify-content: center;
+    }
+
+    .altoidgrid.gallery {
+        margin: 5%;
+        grid-template-areas:
+            "header"
+            "image1"
+            "image2"
+            "image3"
+            "image4"
+            "image5";
+    }
+
+    .mobile-menu-btn {
+        display: block;
+    }
+
+    .navigation a {
+        display: none; /*Removes sticky header titles when in mobile */
+    }
+
+
+
+}
+
+@media (max-width: 400px) {
+
+    .altoidgrid {
+        font-size: 18px;
+    }
+
+    .altoidflavorflex {          
+        margin: 5%;
+    }
+
+    .altoidflavorflexcard img {
+        max-width: 200px;
+    }
+
+    .grid-item img {
+        max-width: 150px;
+        height: auto;
+    }
+
+    .timeline {
+        grid-template-areas:
+            "theader"
+            "seventeen"
+            "eighteen"
+            "one"
+            "seven"
+            "ten"
+            "eleven";
+    }
+}
